@@ -15,3 +15,25 @@ Feel free to use this in any way you see fit, just keep in mind I cannot be held
     [include klipper-flashforge-creatorpro/creatorpro.cfg]
     [include klipper-flashforge-creatorpro/creatorpro-macros.cfg]
    ```
+
+## Add GCode to your slicer
+
+In SuperSlicer for example go to `Printer Settings`, turn _on_ `Expert` mode and open `Custom G-code`.
+
+For `Start G-code` set:
+  ```
+  T[current_extruder]
+  START_PRINT BED_TEMP=[bed_temperature] EXTRUDER_TEMP=[first_layer_temperature]
+  ```
+
+For `End G-code` set:
+  ```
+  END_PRINT
+  ```
+
+For `Tool change G-code` set:
+  ```
+  T[next_extruder]
+  ```
+
+Other slicers may call these settings differently and may use different placeholders.
